@@ -1,0 +1,49 @@
+import java.util.Scanner;
+ 
+class  Rectangle {
+ 
+    private double length;
+    private double height;
+ 
+ 
+    public void insertValues(double l, double h) {
+        this.length = l;
+        this.height = h;
+    }
+ 
+ 
+    public double area() {
+        return length * height;
+    }
+ 
+ 
+    public void display() {
+        System.out.println("Rectangle Length: " + length);
+        System.out.println("Rectangle Height: " + height);
+        System.out.println("Rectangle Area: " + area());
+    }
+}
+ 
+public class Main {
+    public static void main(String[] args) {
+ 
+        Rectangle rect = new Rectangle();
+ 
+ 
+        Scanner scanner = new Scanner(System.in);
+ 
+ 
+        System.out.print("Enter length of the rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter height of the rectangle: ");
+        double height = scanner.nextDouble();
+ 
+ 
+        rect.insertValues(length, height);
+ 
+ 
+        rect.display();
+ 
+        scanner.close();
+    }
+}
