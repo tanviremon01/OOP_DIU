@@ -1,0 +1,154 @@
+public class Book {
+ 
+   
+    String title;
+    String author;
+    int price;
+ 
+   
+    public Book() {
+        this.title = "Unknown";
+        this.author = "Unknown";
+        this.price = 0;
+    }
+ 
+   
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.price = 0;  
+    }
+ 
+ 
+    public Book(String title, String author, int price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+ 
+   
+    public void display() {
+        System.out.println("Book Title: " + title);
+        System.out.println("Book Author: " + author);
+        System.out.println("Book Price: " + price);
+    }
+ 
+   
+    public static void main(String[] args) {
+ 
+     
+        Book book1 = new Book();
+        System.out.println("Book 1 (Using Default Constructor):");
+        book1.display();
+        System.out.println();
+ 
+       
+        Book book2 = new Book("Java", "Oop");
+        System.out.println("Book 2 (Using Constructor with Title and Author):");
+        book2.display();
+        System.out.println();
+ 
+       
+        Book book3 = new Book("java1", "Opp1", 25);
+        System.out.println("Book 3 (Using Constructor with Title, Author, and Price):");
+        book3.display();
+    }
+}
+ 
+ 
+
+import java.util.Scanner;
+ 
+public class Shape {
+ 
+ 
+ double height, width, radius;
+ 
+ 
+ public Shape(double h, double w, double r) {
+  height = h;
+  width = w;
+  radius = r;
+ }
+ 
+ 
+ public double areaRectangle() {
+  return height * width;
+ }
+ 
+ 
+ public double areaCircle() {
+  return 3.14159 * radius * radius;
+ }
+ 
+ 
+ public double areaSquare() {
+  return height * height;
+ }
+ 
+ 
+ public double areaTriangle() {
+  return 0.5 * height * width;
+ }
+ 
+ 
+ public static void main(String[] args) {
+ 
+ 
+  Scanner scanner = new Scanner(System.in);
+ 
+ 
+  System.out.print("Enter height: ");
+  double height = scanner.nextDouble();
+  System.out.print("Enter width: ");
+  double width = scanner.nextDouble();
+  System.out.print("Enter radius: ");
+  double radius = scanner.nextDouble();
+ 
+ 
+  Shape shape = new Shape(height, width, radius);
+ 
+  // Display input values
+  System.out.println("\nYou entered:");
+  System.out.println("Height: " + height);
+  System.out.println("Width: " + width);
+  System.out.println("Radius: " + radius);
+ 
+  System.out.println("Area of rectangle: " + shape.areaRectangle());
+  System.out.println("Area of circle: " + shape.areaCircle());
+  System.out.println("Area of square: " + shape.areaSquare());
+  System.out.println("Area of triangle: " + shape.areaTriangle());
+ 
+ 
+  scanner.close();
+ }
+}
+
+
+
+public class MyClass {
+ 
+    // Method to sum two integers
+    public int sum(int a, int b) {
+        return a + b;
+    }
+ 
+    // Method to sum two floating point numbers
+    public float sum(float a, float b) {
+        return a + b;
+    }
+ 
+    // Method to concatenate two strings
+    public String sum(String a, String b) {
+        return a + b;
+    }
+ 
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+ 
+        // Testing the sum methods with different parameter types
+        System.out.println("Sum of integers: " + obj.sum(3, 4));           // Integer sum: 7
+        System.out.println("Sum of floats: " + obj.sum(3.5f, 4.5f));       // Float sum: 8.0
+        System.out.println("Concatenated strings: " + obj.sum("Hello, ", "world!")); // String concatenation: "Hello, world!"
+    }
+}
