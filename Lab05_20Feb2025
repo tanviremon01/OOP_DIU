@@ -1,0 +1,196 @@
+public class Main {
+    public static void main(String[] args) {
+ 
+        address a1 = new address("Savar", "Dhaka","Bangladesh");
+        Employee e1 = new Employee(172, "Emon" , a1);
+        Bank B1 = new Bank("BD Bank" , e1);
+ 
+        e1.display();
+        e1.display2();
+        B1.openAccount(e1);
+        B1.closeAccount(e1);
+ 
+ 
+ 
+    }
+}
+ 
+public class Bank {
+    public String Bname;
+    Employee E1;
+ 
+    Bank(String Bname , Employee E1 ){
+        this.Bname =Bname;
+        this.E1 = E1;
+    }
+    void openAccount(Employee E1){
+        System.out.println("This User's " + this.E1.name + " Account Is opened");
+    }
+    void closeAccount(Employee E1){
+        System.out.println("This User's " + this.E1.name + " Account Is closed ");
+    }
+}
+ 
+public class Employee extends Person {
+    public int id;
+    public String name;
+    address address;
+ 
+    Employee(int id ,String name , address address ){
+        this.id = id;
+        this.name = name ;
+        this.address = address;
+    }
+ 
+    void display(){
+        System.out.println("Employee Id :" +this.id);
+        System.out.println("Employee name :" +this.name);
+        System.out.println("City :" +this.address.city);
+        System.out.println("State :"+this.address.state);
+        System.out.println("COuntry :" +this.address.country);
+    }
+}
+ 
+public class Person {
+    void display2(){
+        System.out.println("This is a private account");
+    }
+}
+ 
+ 
+public class address {
+    public String city ;
+    public String state;
+    public String country;
+ 
+    address(String city ,String state ,String country ){
+        this.city = city;
+        this.country = country;
+        this.state = state;
+    }
+ 
+    /*void display(){
+        System.out.println(this.city);
+        System.out.println(this.state);
+        System.out.println(this.country);
+    } */
+}
+
+
+
+
+Ev--
+
+public class Main {
+    public static void main(String[] args) {
+        // Book objects
+        Book book1 = new Book("OOP-1", 1500);
+        Book book2 = new Book("OOP-2", 2000);
+ 
+        // Academic book objects
+        Academic academicBook1 = new Academic("Academic Book 1", 1000);
+        Academic academicBook2 = new Academic("Academic Book 2", 1200);
+ 
+        // LiteratureBook objects
+        LiteratureBook literatureBook1 = new LiteratureBook("Literature Book 1", 1800);
+        LiteratureBook literatureBook2 = new LiteratureBook("Literature Book 2", 2200);
+ 
+        // Author objects
+        Author author1 = new Author("Emon");
+        Author author2 = new Author("Fahed");
+ 
+        // Displaying the Book lists
+        Book[] bookList = {book1, book2};
+        Book.displayBooklist(bookList);
+ 
+        Academic[] academicBookList = {academicBook1, academicBook2};
+        Academic.displayBooklist(academicBookList);
+ 
+        LiteratureBook[] literatureBookList = {literatureBook1, literatureBook2};
+        LiteratureBook.displayBooklist(literatureBookList);
+ 
+        // Author writing books
+        author1.writeBook(book1);
+        author2.writeBook(academicBook1);
+        author1.writeBook(literatureBook2);
+    }
+ 
+// Class Author
+class Author {
+    String name;
+ 
+    // Constructor
+    public Author(String name) {
+        this.name = name;
+    }
+ 
+    // write a book
+    public void writeBook(Book book) {
+        System.out.println(name + " has written the book: " + book.title);
+    }
+}
+ 
+ 
+// Main class Book
+class Book {
+    String title;
+    double price;
+    Author author;
+ 
+    // Constructor
+    public Book(String title, double price) {
+        this.title = title;
+        this.price = price;
+        this.author = author;
+    }
+ 
+    // display book details
+    public void display() {
+        System.out.println("Title: " + title + ", Price: " + price);
+    }
+ 
+    public void writtenBy() {
+        author.writeBook(this);  // Book object to the Author
+    }
+ 
+    // display book list
+    public static void displayBooklist(Book[] books) {
+        System.out.println("Book List:");
+        for (Book book : books) {
+            book.display();
+        }
+    }
+}
+ 
+ 
+// Subclass for Academic books
+class Academic extends Book {
+    // Constructor
+    public Academic(String title, double price) {
+        super(title, price);
+    }
+ 
+    // display academic book list
+    public static void displayBooklist(Academic[] books) {
+        System.out.println("Academic Book List:");
+        for (Academic book : books) {
+            book.display();
+        }
+    }
+}
+ 
+// Subclass for Literature books
+class LiteratureBook extends Book {
+    // Constructor
+    public LiteratureBook(String title, double price) {
+        super(title, price);
+    }
+ 
+    // display literature book list
+    public static void displayBooklist(LiteratureBook[] books) {
+        System.out.println("Literature Book List:");
+        for (LiteratureBook book : books) {
+            book.display();
+        }
+    }
+}
