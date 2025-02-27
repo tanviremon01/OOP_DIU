@@ -1,0 +1,151 @@
+// Composition Example: Book cannot exist without Library
+class Book {
+    private String title;
+
+    Book(String title) {
+        this.title = title;
+    }
+
+    void displayBook() {
+        System.out.println("Book: " + title);
+    }
+}
+
+class Library {
+    private Book[] books; // Composition: Library owns books
+
+    Library(String[] bookTitles) {
+        books = new Book[bookTitles.length];
+        for (int i = 0; i < bookTitles.length; i++) {
+            books[i] = new Book(bookTitles[i]);
+        }
+    }
+
+    void showBooks() {
+        for (Book book : books) {
+            book.displayBook();
+        }
+    }
+}
+
+// Aggregation Example: Member exists independently from Library
+class Member {
+    String name;
+
+    Member(String name) {
+        this.name = name;
+    }
+}
+
+class LibrarySystem {
+    private Member member; // Aggregation: LibrarySystem can have a member
+
+    LibrarySystem(Member member) {
+        this.member = member;
+    }
+
+    void showMember() {
+        System.out.println("Library Member: " + member.name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Composition Example: Library has Books
+        String[] bookTitles = {"The Alchemist", "1984", "Java Programming"};
+        Library library = new Library(bookTitles);
+        System.out.println("Library Books:");
+        library.showBooks();
+
+        System.out.println();
+
+        // Aggregation Example: LibrarySystem has a Member
+        Member member = new Member("Alice");
+        LibrarySystem system = new LibrarySystem(member);
+        system.showMember();
+    }
+}
+
+
+
+
+
+
+
+-------------------------
+
+
+
+
+public class AddressInfo {
+    String street,city,state,postalCode;
+
+    public AddressInfo(String street, String city,String state,String postalCode)
+    {
+        this.street=street;
+        this.city=city;
+        this.state=state;
+        this.postalCode=postalCode;
+    }
+}
+
+
+
+
+
+
+
+
+
+public class InsuranceInfo {
+    String policyName;
+    int policyId;
+    public InsuranceInfo(String policyName, int policyId)
+    {
+        this.policyId=policyId;
+        this.policyName=policyName;
+    }
+}
+
+
+
+public class Employeee {
+    String name;
+    AddressInfo addressInfo;
+    InsuranceInfo insuranceInfo;
+    public Employeee(String name, AddressInfo addressInfo, InsuranceInfo insuranceInfo)
+    {
+        this.name=name;
+        this.addressInfo=addressInfo;
+        this.insuranceInfo=insuranceInfo;
+
+    }
+    public void display()
+    {
+        System.out.println("Name of Employee : "+this.name);
+        System.out.println("Address of Employee: "+
+                addressInfo.street+", "+addressInfo.city+", "+
+                addressInfo.state+", "+addressInfo.postalCode);
+        System.out.println("Insurance information: "+
+                insuranceInfo.policyName+", "+insuranceInfo.policyId);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        AddressInfo addressInfo= new AddressInfo("Sector 4", "Uttara", "Dhaka", "1711");
+        InsuranceInfo insuranceInfo =new InsuranceInfo("Life Insurance", 123);
+        Employeee employeee =new Employeee("Mr. Rahim",addressInfo, insuranceInfo );
+        employeee.display();
+    }
+}
+
